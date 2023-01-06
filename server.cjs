@@ -6,13 +6,12 @@ const httpPort = 8080
 http.createServer(function (request, response) {
 
     // console.log('request starting...');
-    console.log(request.url);
     var filePath = '.' + request.url;
     if (filePath == './')
         filePath = './index.html';
 
-
     var extname = path.extname(filePath);
+
     var contentType = 'text/html';
     switch (extname) {
         case '.js':
@@ -29,6 +28,9 @@ http.createServer(function (request, response) {
             break;      
         case '.jpg':
             contentType = 'image/jpg';
+            break;      
+        case '.svg':
+            contentType = 'image/svg+xml';
             break;
         case '.wav':
             contentType = 'audio/wav';
