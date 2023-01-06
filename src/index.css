@@ -1,0 +1,82 @@
+@import "./Styles/Cards.css";
+@import "./Styles/hamburger.css";
+@import "./Styles/rubber.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+*{
+    scroll-behavior: smooth;
+}
+
+ 
+*::-webkit-scrollbar {
+    width: 0.3rem;
+}
+    
+*::-webkit-scrollbar-track {
+   background: black;
+}
+    
+*::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+    background: red;
+}
+
+@layer components {
+    .menu-link::after {
+        position: absolute;
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 700ms;
+        z-index: -10;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        border-radius: 0.125rem;
+    }
+
+    .transition-all-bounce {
+        transition-property: all;
+        transition-timing-function: cubic-bezier(.8, .5, .2, 1.5);
+        transition-duration: 150ms;
+    }
+    .bounce-timing{
+        transition-timing-function: cubic-bezier(.8, .5, .2, 1.4);
+    }
+
+    .squashy-latter-anim{
+        transition-duration: 0.5s, 0s, 0.5s;
+        transition-timing-function: cubic-bezier(.8, .5, .2, 1.5), ease, ease;
+        transition-delay: 0s, 0s, 0s;
+        transition-property: transform, color, opacity;
+    }
+
+    .Squash-text{
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.2, 0.35, 1, 2);
+        transition-duration: 150ms;
+    }
+
+    .git-cursor{
+        cursor: url("./assets/icons/github.svg"),pointer ;
+    }
+
+    .itch-cursor{
+        cursor: url("./assets/icons/itch.svg"),pointer ;
+    }
+    
+    .art-cursor{
+        cursor: url("./assets/icons/artstation.svg"),pointer ;
+    }
+    .yt-cursor{
+        cursor: url("./assets/icons/yt.svg"),pointer ;
+    }
+
+  }
+
+
+
