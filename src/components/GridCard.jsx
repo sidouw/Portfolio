@@ -38,32 +38,33 @@ export default function GridCard({mouseX=0,mouseY=0,style={},item}) {
     const bgColor= ()=>{
       switch (item.tag) {
         case "3D Art":
-          return "rgb(34 197 94 / 0.4)"
+          return "rgb(34 197 94 / 0.2)"
           break;
       
         case "Web":
-          return "rgb(14 165 233 / 0.4)"
+          return "rgb(14 165 233 / 0.2)"
           break;
       
         case "Game":
-          return "rgb(239 68 68 / 0.4)"
+          return "rgb(239 68 68 / 0.2)"
           break;
       
         default:
           break;
       }
     }
+
     const cursor = ()=>{
-      switch (item.tag) {
-        case "3D Art":
+      switch (item.cursor) {
+        case "art":
           return "art-cursor"
           break;
       
-        case "Web":
+        case "git":
           return "git-cursor"
           break;
       
-        case "Game":
+        case "itch":
           return "itch-cursor"
           break;
       

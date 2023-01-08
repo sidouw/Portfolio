@@ -24,7 +24,7 @@ const ProjectsGrid= ({items=[],gradColor="#F5F5F5"})=>{
     
     if (!import.meta.env.SSR) {
       window && useEventListener("resize",(e)=>{
-        cardContainerRef.current && setCardContainerWidth(cardContainerRef.current.clientWidth)
+        cardContainerRef.current && setCardContainerWidth(cardContainerRef.current.clientWidth-5)
         if(window.innerWidth<=550){
             setCardContainerColumns(1)
         }
@@ -41,7 +41,7 @@ const ProjectsGrid= ({items=[],gradColor="#F5F5F5"})=>{
     
     useEffect(()=>{
       if (!import.meta.env.SSR) {
-        cardContainerRef.current && setCardContainerWidth(cardContainerRef.current.clientWidth)
+        cardContainerRef.current && setCardContainerWidth(cardContainerRef.current.clientWidth-10)
         if(window.innerWidth<=550){
           setCardContainerColumns(1)
         }
