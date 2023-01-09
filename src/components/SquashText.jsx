@@ -1,7 +1,24 @@
+import {useState,useEffect} from 'react'
 
-export default function SquashText({className="",text="",style= {}}) {
+import useTimeout  from '../hooks/useTimeout'
+
+export default function SquashText({className="",text="",style= {},start=true}) {
+
+  const [hidden,setHidden] = useState(true)
+  const [casses,setCasses] = useState('')
+
+const {reset:resetHidden}= useTimeout(()=>setHidden(false),500,false)
+const {reset:resetAnim}= useTimeout(()=>setCasses("animated rubberBand"),2500,false)
+
+useEffect(()=>{
+    if(start){
+    resetHidden()
+    resetAnim()
+    }
+},[start])
 
   const onMouseHover= (e)=>{
+    casses!=="" && setCasses("")
     if(!e.target.classList.contains('animated')){
       e.target.classList.add('animated','rubberBand')
       setTimeout(()=> e.target.classList.remove('animated','rubberBand'),1100)
@@ -14,8 +31,12 @@ export default function SquashText({className="",text="",style= {}}) {
         text.split('').map((char,ind)=>( 
           char==" "? 
           <span key={ind} className = "cursor-default" > </span>  : 
-          // <span key={ind} className="bg-red-200 cursor-default hover:-translate-y-1 hover:font-semibold hover:scale-x-95 hover:scale-y-110 inline-block Squash-text tracking-wide" >{char}</span>))
-          <span onMouseOver={onMouseHover} key={ind} className="hover:text-red-500 cursor-default inline-block Squash-text tracking-wide" >{char}</span>))
+          <span onMouseOver={onMouseHover} key={ind} className={`cursor-default inline-block duration-300 tracking-wide animated-Squash-text ${casses}`}
+                                                      style = {{transitionDelay:(ind*(2000/text.split('').length)+"ms"),
+                                                                  opacity :hidden ? 0 : 1,
+                                                                }} >
+            {char}
+          </span>))
         }
     </div>
   )

@@ -9,6 +9,8 @@
 
 *{
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(245 245 245 ) rgb(23 23 23 );
 }
 
  
@@ -57,6 +59,12 @@
 
     .Squash-text{
         transition-property: all;
+        transition-timing-function: cubic-bezier(0.2, 0.35, 1, 2);
+        transition-duration: 150ms;
+    }
+
+    .animated-Squash-text{
+        transition-property: opacity;
         transition-timing-function: cubic-bezier(0.2, 0.35, 1, 2);
         transition-duration: 150ms;
     }

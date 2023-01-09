@@ -115,7 +115,7 @@ export default function AnimatedSquashText({className="",text=[{}],textDisplaySp
           char==" "? 
             <span key={ind} className="cursor-default" > </span>  : 
             
-            <span key={ind} onMouseOver={onMouseHover} className={`${state==-1 ? "" : ""} transition-all-bounce duration-200 delay-500  inline-block ${scaleAnim()} 
+            <span key={ind} onMouseOver={onMouseHover} className={`transition-all-bounce duration-200 delay-500  inline-block ${scaleAnim()} 
                                            squashy-latter-anim tracking-wide cursor-default`} 
                                           style = {{transitionDelay:(ind*(textDisplaySpeed/charArray.length)+"ms")}}
                                           >

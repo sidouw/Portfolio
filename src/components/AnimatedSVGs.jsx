@@ -5,7 +5,7 @@ import { useSpring,animated} from '@react-spring/web'
 import useTimeout from "../hooks/useTimeout";
 
 
-function useAnimatedPath({ toggle, delay=0,duration =2000}) {
+function useAnimatedPath({ toggle, delay=0,duration =1650}) {
 
   const [length, setLength] = useState(null);
   
@@ -49,7 +49,6 @@ function AnimatedPath({toggle,path,strokeWidth=.1 }) {
   );
 }
 
-
 export default function AnimatedSVGs({className=""}) {
 
 
@@ -63,18 +62,20 @@ export default function AnimatedSVGs({className=""}) {
 
   const nextSVG = ()=>{
     setActiveIndex(old=>(old+1) % 3)
-    // setHide(false)
     resetTimeout03()
+    // setHide(false)
     resetTimeout01()
   }
 
   const {reset:resetTimeout01,clear:clearTimeout01}=useTimeout(hideSVG,1500+3000,false)
 
-  const {reset:resetTimeout02,clear:clearTimeout02}=useTimeout(nextSVG,1500+150,false)
-  const {reset:resetTimeout03,clear:clearTimeout03}=useTimeout(()=>setHide(false),150,false)
+  const {reset:resetTimeout02,clear:clearTimeout02}=useTimeout(nextSVG,1500,false)
+
+  const {reset:resetTimeout03,clear:clearTimeout03}=useTimeout(()=>{setHide(false);resetTimeout01()},50,true)
+
   const start = ()=>{
     setHide(false)
-    resetTimeout01()
+    // resetTimeout01()
   }
 
   useEffect(()=>{
@@ -84,9 +85,9 @@ export default function AnimatedSVGs({className=""}) {
   return (
     <div className={className}>
       
-        <GameSVG toggle={activeIndex == 0 && !hide}/>
-        <WebSVG toggle={activeIndex == 1  && !hide}/>
-        <ArtSVG toggle={activeIndex == 2  && !hide}/>
+        {activeIndex == 0 && <GameSVG toggle={!hide}/>}
+        {activeIndex == 1 && <WebSVG toggle={!hide}/>}
+        {activeIndex == 2 && <ArtSVG toggle={!hide}/>}
     </div>
 
   );
