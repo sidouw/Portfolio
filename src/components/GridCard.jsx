@@ -85,7 +85,7 @@ export default function GridCard({mouseX=0,mouseY=0,style={},item}) {
       
       <div className = {`relative w-full h-full group overflow-hidden ${cursor()} `} onClick={onClicked}>
         <div className="absolute h-full w-full z-[4] bg-gradient-to-t from-black/80 via-transparent to-transparent transition-all duration-300 group-hover:translate-y-56" />
-        <img src={item.image} className = "absolute w-full h-full object-cover z-[3] transition-all duration-300 group-hover:scale-110" />
+        <img src={item.image} className = "absolute w-full h-full object-cover z-[3] transition-all duration-300 group-hover:scale-150 group-hover:translate-y-9" />
         <span className="absolute z-[4] bottom-7 left-2 text-xl text-neutral-200 tracking-wide transition-all duration-300 group-hover:-translate-x-80">{item.name}</span>
         <span className={`absolute z-[4] bottom-2 left-3 text-sm font-semibold text-${txtColor()} transition-all duration-300 group-hover:-translate-x-80`}>{item.tag}</span>
       </div>

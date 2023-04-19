@@ -10,7 +10,7 @@ export default function ProjectsSelector({onDataChanged}) {
     const onDataSelected = ()=>{
         switch (selectedTag) {
             case "all":
-                onDataChanged && onDataChanged([...artProjectsData,...gameProjectsData,...webProjectsData],"#F5F5F5")
+                onDataChanged && onDataChanged([...webProjectsData,...artProjectsData,...gameProjectsData],"#F5F5F5")
                 SethighLightOffset(2)
                 setGradColor("#F5F5F5")
                 break;

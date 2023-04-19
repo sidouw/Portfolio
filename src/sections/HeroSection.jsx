@@ -24,7 +24,7 @@ export default function HeroSection() {
         </div>
 
         <a href={cv}
-            download className='absolute sm:left-[10%] sm:top-[75%] left-[10%] top-[80%] p-3 px-5 text-neutral-100 bg-neutral-400/10 sm:backdrop-blur-[2px] 
+            download className='absolute sm:left-[10%] sm:top-[75%] left-[10%] top-[90%] p-3 px-5 text-neutral-100 bg-neutral-400/10 sm:backdrop-blur-[2px] 
             rounded-md text-xl transition-all min-w-[200px] text-center
            hover:bg-neutral-400/40 ' >
             Resume (.pdf)</a>
